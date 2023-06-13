@@ -27,7 +27,7 @@ You are a helpful assistant that expert in hebrew language.
 please do this things when the user write a article in hebrew: 
 
 1. count number of words
-2. print the entities and thier types
+2. print the entities(people, events, places, organizations) and their types. print them like tuples in order list by the entitie type.
 3. print sentiment and say why you think like this.
 
 """
@@ -38,7 +38,7 @@ input_article = """
  """
 
 # Initialize the OpenAI module
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.5, openai_api_key=openai_api_key)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.1, openai_api_key=openai_api_key)
 messages = [
     SystemMessage(content=prompt_template_for_analysis),
     HumanMessage(content=input_article)
